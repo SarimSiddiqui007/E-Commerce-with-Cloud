@@ -10,7 +10,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Details from './pages/Details'
 import ProductusingApi from './pages/ProductusingApi'
-import VariousCategory from './pages/variouscategory'
+import VariousCategory from "./pages/VariousCategory";  
 import Cart from './pages/Cart'
 import WishList from './pages/WishList'
 import Checkout from "./pages/Checkout";
