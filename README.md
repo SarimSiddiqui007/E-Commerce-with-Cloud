@@ -1,16 +1,151 @@
-# React + Vite
+# 🛒 E-Commerce with Cloud Integration
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
 
-Currently, two official plugins are available:
+This project is a cloud-enabled E-Commerce Web Application developed using **React** and **Azure Cloud Services**. It allows users to browse products, manage their shopping cart, proceed to checkout, and store order details in **Azure Blob Storage** using **Azure Functions**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Browse products using API
+* Product details page
+* Category-wise filtering
+* Shopping Cart
+* Wishlist
+* Quantity Management
+* Checkout Page
+* Order Summary
+* Responsive UI
+* Cloud-based Order Storage
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ☁️ Cloud Integration
+
+### Azure Static Web Apps
+
+* Hosted the React frontend on Azure Static Web Apps.
+
+### Azure Functions
+
+* Created a serverless backend (`saveOrder`) to receive customer orders.
+
+### Azure Blob Storage
+
+* Order details are stored as JSON files inside an Azure Blob Storage container named **orders**.
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+* React.js
+* React Router DOM
+* Redux Toolkit
+* Bootstrap
+* JavaScript
+* HTML5
+* CSS3
+
+### Cloud
+
+* Azure Static Web Apps
+* Azure Functions
+* Azure Blob Storage
+
+---
+
+## 📂 Project Structure
+
+```
+E-Commerce-with-Cloud
+│
+├── src
+│   ├── components
+│   ├── pages
+│   ├── redux
+│   └── images
+│
+├── ecommerce_api
+│   ├── src/functions
+│   ├── package.json
+│   ├── host.json
+│   └── local.settings.json (Not uploaded)
+│
+├── public
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the React application
+
+```bash
+npm run dev
+```
+
+---
+
+## Azure Function
+
+Move to the Azure Function folder
+
+```bash
+cd ecommerce_api
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Deploy using Azure Functions extension in Visual Studio Code.
+
+## Cloud Workflow
+
+```
+Customer
+      │
+      ▼
+React Frontend
+      │
+      ▼
+Azure Function (saveOrder)
+      │
+      ▼
+Azure Blob Storage
+      │
+      ▼
+orders/order-xxxxxxxx.json
+```
+
+---
+
+
+## Future Enhancements
+
+* User Authentication
+* Online Payment Gateway
+* Order History
+* Admin Dashboard
+* Email Notifications
+* Inventory Management
+
