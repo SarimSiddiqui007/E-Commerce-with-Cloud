@@ -1,14 +1,14 @@
 {
-  "name": "vite-project2",
+  "name": "ecommerce_api",
   "version": "1.0.0",
   "description": "",
+  "main": "src/functions/*.js",
   "scripts": {
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0"
-  },
-  "devDependencies": {},
-  "main": "src/{index.js,functions/*.js}"
+    "@azure/functions": "^4.0.0",
+    "@azure/storage-blob": "^12.32.0"
+  }
 }

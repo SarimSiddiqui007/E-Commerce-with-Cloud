@@ -31,27 +31,46 @@ const Checkout = () => {
     });
   };
 
-  const handlePlaceOrder = async (e) => {
-    e.preventDefault();
+ const handlePlaceOrder = async (e) => {
+  e.preventDefault();
 
-    const order = {
-      customer,
-      items: cartItems,
-      total: totalPrice,
-      orderDate: new Date().toISOString(),
-    };
-
-    console.log(order);
-
-    setLoading(true);
-
-    // Azure Function will be added here later
-
-    setTimeout(() => {
-      setLoading(false);
-      navigate("/order-success");
-    }, 1500);
+  const order = {
+    customer,
+    items: cartItems,
+    total: totalPrice,
+    orderDate: new Date().toISOString(),
   };
+
+  setLoading(true);
+
+  try {
+    const response = await fetch(
+      "https://ecommerce-order-api-eebpctc8bqdyanga.eastasia-01.azurewebsites.net/api/SaveOrder",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(order),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to place order");
+    }
+
+    const data = await response.json();
+
+    console.log("Azure Response:", data);
+
+    setLoading(false);
+    navigate("/order-success");
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Failed to place order. Please try again.");
+    setLoading(false);
+  }
+};
 
   return (
     <div className="container py-5">
